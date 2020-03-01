@@ -1,0 +1,69 @@
+h1 {
+font-family: Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+	color: #757500;
+	text-align: center;
+}
+.degrade {
+	position: relative;
+	left"WebContent/styleCSS/admin.css": 200px;
+	font-size: 30px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#D0D01A),
+		to(#525205));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+/*boder single  */
+
+h3 {
+	font-family: Helvetica, sans-serif;
+	position: relative;
+	left: 250px;
+	color: #757500;
+	font-size: 20px;
+}
+
+
+table { 
+  border-collapse: collapse;
+}
+/*style de border  */
+table, th, td {
+  border: 1px solid #557701;
+}
+.table {
+	width: 100%;
+	height: 100%;
+}
+
+.table td {
+	padding: 50px;
+	width: 7%;
+	opacity: 0.5;
+	text-align: justify ;
+    font-family: Helvetica, sans-serif;
+    font-style: normal;
+    font-size: 15px;
+}
+
+th {
+	background-color: rgb(179,179,62);
+	width: 5%;
+	height: 50px;
+	text-align: center;
+	font-family: Helvetica, sans-serif;
+    font-style: normal;
+    font-size: 15px;
+       font-weight: bold;
+}
+button {
+	 height: 50px;
+	 width: 150px;
+	 font-size: 18px;
+	 	background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#045FB4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+
+}

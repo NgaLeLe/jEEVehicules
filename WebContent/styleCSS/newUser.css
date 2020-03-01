@@ -1,0 +1,79 @@
+body {
+	background-color: #f1f3f5;
+}
+
+#degrade {
+	font-family: Helvetica, sans-serif;
+	position: relative;
+	left: 350px;
+	font-size: 35px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#D0D01A),
+		to(#525205));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+h3 {
+	font-family: Helvetica, sans-serif;
+	position: relative;
+	left: 250px;
+	color: #757500;
+	font-size: 20px;
+}
+
+.degrade {
+	font-family: Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: #404505;
+}
+
+button {
+	height: 40px;
+	width: 100px;
+	font-size: 18px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#000),
+		to(#045FB4));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+#formulaire {
+	position: relative;
+	left: 350px;
+	top: 20px;
+}
+
+input {
+	height: 30px;
+	width: 200px;
+	left: 550px; font-size : 14px;
+	font-family: Helvetica;
+	font-size: 14px;
+}
+
+p {
+	background: -webkit-gradient(linear, left top, left bottom, from(#000),
+		to(#045FB4));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: #19186d;
+}
+
+#nvcompte {
+	position: relative;
+	font-family: Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	font-style: italic;
+	color: #404505;
+	left: 500px;
+}
+#idContinue {
+	position: relative;
+	font-family: Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	font-style: italic;
+	color: #404505;
+	left: 500px;
+}

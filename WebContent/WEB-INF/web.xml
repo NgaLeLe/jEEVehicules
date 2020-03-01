@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+
+  <welcome-file-list>
+    <welcome-file>login</welcome-file>
+  </welcome-file-list>
+
+ <filter>
+	<filter-name>FiltreAccessible</filter-name>
+	<filter-class>fr.filtre.FiltreAccessible</filter-class>
+</filter>
+<filter-mapping>
+	<filter-name>FiltreAccessible</filter-name>
+	<url-pattern>/viewJSP/toto</url-pattern>
+  </filter-mapping>  
+ 
+ 
+<!-- défini servlet qui a le nom associé classe servlet, si on a plusieurs servlets, il faut les déclarer ici -->
+<servlet>
+	<servlet-name>SvlLoginForm</servlet-name>
+	<servlet-class>fr.controlleur.SvlLoginForm</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SvlLoginForm</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>SvlSiteVehicule</servlet-name> <!-- nom de servlet java dans le package src/tetsServlet -->
+		<servlet-class>fr.controlleur.SvlSiteVehicule</servlet-class> 
+		<!-- servlet-class: nom de package/nom de fichier servlet -->
+	</servlet>
+	<servlet-mapping><!-- autre façon d'accèss de servlet, déclare chemin d'accèss ce servlet  -->
+		<servlet-name>SvlSiteVehicule</servlet-name>
+		<url-pattern>/toto</url-pattern>		
+	</servlet-mapping>
+	
+	
+	<servlet>
+	<servlet-name>SvlCreationUser</servlet-name>
+	<servlet-class>fr.controlleur.SvlCreationUser</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SvlCreationUser</servlet-name>
+		<url-pattern>/newuser</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+	<servlet-name>FilesServlet</servlet-name>
+	<servlet-class>fr.controlleur.FilesServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FilesServlet</servlet-name>
+		<url-pattern>/files</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>SvlAdmin</servlet-name>
+	<servlet-class>fr.controlleur.SvlAdmin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SvlAdmin</servlet-name>
+		<url-pattern>/admin</url-pattern>
+	</servlet-mapping>
+	
+<servlet>
+	<servlet-name>SvlDeconnexion</servlet-name>
+	<servlet-class>fr.controlleur.SvlDeconnexion</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SvlDeconnexion</servlet-name>
+		<url-pattern>/Disconnect</url-pattern>
+	</servlet-mapping>
+	
+	
+</web-app>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+ <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+
+<title>Insert title here</title>
+</head>
+<body>
+	
+	 <script>
+	 function ObjId(){
+		    let id = 1;
+		    return {
+		        getId: function(){
+		            return id;
+		        },
+		        setId: function(_id){
+		            id = _id;
+		        }
+		    }
+		}
+
+		var myObject = ObjId();
+		var myO2 = ObjId();
+		console.log(myObject.getId());  // => 1
+		myObject.setId(10);
+		console.log(myObject.getId());  // => 10
+		console.log(myO2.getId());
+	</script>
+
+
+	 <script>
+	</script>
+
+<!-- 	<script>
+		var element=$('.id_container'); //lay gia tri theo class, kh bao .tenclass
+		var value_element='';
+		for (var i = 0; i <= element.length; i++) {
+			value_element += $(element[i]).text(); //lay gia tri cua element i
+		}
+		alert($(element).html()); //lay gia tri cua bien element gia tri thu 1
+		alert(value_element);
+		alert(element.length); 
+		//gan backgrond cho cac element tuong ung voi id_container
+		$(".id_container:eq(3)").css({
+		    background : "yellow"
+		});
+	</script>
+ -->
+</body>
+</html>
