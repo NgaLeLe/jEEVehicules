@@ -72,18 +72,14 @@ public class SvlSiteVehicule extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		if (request.getSession().getAttribute("username") != null) {// request.setAttribute("username",
-			// myUsername);
-			// requête de ce servlet peut envoyer à un autre servlet/page qui sont dans même
-			// projet
-			// la partie getServletContext().getRequestDispattcher() recupère
-			this.getServletContext().getRequestDispatcher("/viewJSP/tableVehicule.jsp").forward(request, response);
-		} else {
-			response.sendRedirect("login");
-		}
+		// requête de ce servlet peut envoyer à un autre servlet/page qui sont dans même
+		// projet
+		// la partie getServletContext().getRequestDispattcher() recupère
+		this.getServletContext().getRequestDispatcher("/viewJSP/tableVehicule.jsp").forward(request, response);
 
 	}
 
+//chercher un Vehicule par immatriculation, if il exist, ça tourne son id dans la liste 
 	private int findVehicule(String pImmatriculation) {
 		int idVehicule = -1;
 		for (int i = 0; i < list.size(); i++) {

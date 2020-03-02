@@ -2,6 +2,7 @@ package fr.filtre;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -13,6 +14,10 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import fr.service.CheckUser;
+import fr.service.UtilisateurDB;
+import fr.test.java.modele.Utilisateur;
 
 /**
  * Servlet Filter implementation class FiltreAccessible
@@ -41,17 +46,25 @@ public class FiltreAccessible implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 		HttpSession session = req.getSession(); // récupère session
+		UtilisateurDB tmpUtilisateur = new UtilisateurDB();
 
-		String fUser = req.getParameter("username");
-		String fPass = req.getParameter("password");
-		System.out.println(fUser + "___" + fPass);
-		if ((fUser != null && fPass != null) || (!req.getParameter("error").contains("1"))
-				|| (!req.getParameter("disconnect").contains("1"))) {
-			PrintWriter out = response.getWriter();
-			out.print("You have permission");
-			chain.doFilter(req, res);
+		String fUser = (String) session.getAttribute("username");
+		String fPass = (String) session.getAttribute("password");
+		Utilisateur user = null;
+		if (fUser != null) {
+			try {
+				user = tmpUtilisateur.chercherUser(fUser, fPass);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (NullPointerException e) {
+				e.printStackTrace();
+			}
+		}
+		if ((fUser != null || user == null) && req.getRequestURI().endsWith("toto")) {
+			res.sendRedirect("login");
+			return;
 		} else {
-			res.sendRedirect(req.getContextPath() + "/login");
+			chain.doFilter(req, res);
 		}
 	}
 

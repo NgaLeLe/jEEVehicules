@@ -1,0 +1,275 @@
+
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+}
+
+#cal-top-section button {
+  float: right;
+}
+#cal-top-section button.active {
+  color: green;
+  font-weight: bold;
+}
+
+#sch-go-back-btn {
+  display: none;
+  position: absolute;
+  font-size: 29pt;
+  top: 65px;
+  left: 10px;
+  cursor: pointer;
+}
+#sch-go-back-btn.active {
+  display: block;
+}
+#sch-go-back-btn:hover {
+  color: darkgreen;
+}
+
+#cal-header-control {
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #d8d8d8;
+  cursor: pointer;
+  transition: all 0.2 ease-in;
+}
+#cal-header-control:hover {
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+}
+#cal-header-control #cal-header-control-display {
+  font-size: 22pt;
+  font-weight: 600;
+  text-align: center;
+}
+#cal-header-control #cal-header-control-display .month-display .date {
+  display: inline-block;
+  min-width: 230px;
+}
+#cal-header-control #cal-header-control-display .prev-month,
+#cal-header-control #cal-header-control-display .next-month {
+  width: 30px;
+}
+#cal-header-control #cal-header-control-display .prev-month:hover,
+#cal-header-control #cal-header-control-display .next-month:hover {
+  font-weight: bold;
+  color: darkgreen;
+  background-color: #cee0dc;
+}
+#cal-header-control #cal-header-control-display .first-month,
+#cal-header-control #cal-header-control-display .last-month {
+  display: none;
+}
+#cal-header-control .months-container {
+  display: flex;
+  -webkit-justify-content: center;
+  -webkit-flex-flow: row wrap;
+  padding: 10px;
+}
+#cal-header-control .months-container.hide {
+  display: none;
+}
+#cal-header-control .months-container .month-btn {
+  padding: 2px 5px 2px 5px;
+  margin: 0 5px 3px 5px;
+  border: 1px solid #d8d8d8;
+  border-radius: 5px;
+  min-width: 40px;
+  text-align: center;
+}
+#cal-header-control .months-container .month-btn:hover {
+  background-color: #cee0dc;
+}
+
+#cal-day-view-label,
+#cal-week-view-label,
+#cal-month-view-label {
+  text-align: center;
+}
+
+#day-view {
+  display: none;
+  border: 1px solid #ccc;
+  height: 85vh;
+}
+#day-view .row .cell span {
+  padding-left: 3px;
+}
+
+#week-view {
+  display: block;
+}
+#week-view .cell.header {
+  cursor: pointer;
+}
+
+#month-view {
+  display: none;
+}
+
+#week-view,
+#month-view {
+  overflow: auto;
+}
+#week-view .row,
+#month-view .row {
+  display: flex;
+}
+#week-view .row:last-child,
+#month-view .row:last-child {
+  border-bottom: 1px solid #ccc;
+}
+#week-view .row .cell,
+#month-view .row .cell {
+  position: relative;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  min-width: 100px;
+  min-height: 150px;
+  flex: 1;
+}
+#week-view .row .cell .day,
+#month-view .row .cell .day {
+  position: absolute;
+  top: 0;
+  padding: 3px;
+  text-align: center;
+  height: 100%;
+  width: 23px;
+  cursor: pointer;
+}
+#week-view .row .cell .day.edge span,
+#month-view .row .cell .day.edge span {
+  opacity: 0.3;
+}
+#week-view .row .cell .day.edge:hover,
+#month-view .row .cell .day.edge:hover {
+  background-color: #edfff4;
+}
+#week-view .row .cell .day:hover,
+#month-view .row .cell .day:hover {
+  background-color: #edfff4;
+}
+#week-view .row .cell .day .week-view-link,
+#month-view .row .cell .day .week-view-link {
+  position: absolute;
+  transform: rotate(-90deg);
+  transform-origin: left top 0;
+  display: none;
+  font-size: 10pt;
+  width: 80px;
+  margin-left: -11px;
+  margin-top: 81px;
+}
+#week-view .row .cell .day .week-view-link.half,
+#month-view .row .cell .day .week-view-link.half {
+  margin-top: 73px !important;
+  width: 75px;
+}
+#week-view .row .cell .day .week-view-link.half:hover,
+#month-view .row .cell .day .week-view-link.half:hover {
+  font-weight: 600;
+  background-color: #49a078;
+}
+#week-view .row .cell .day .day-view-link,
+#month-view .row .cell .day .day-view-link {
+  position: absolute;
+  transform: rotate(-90deg);
+  transform-origin: left top 0;
+  display: none;
+  font-size: 10pt;
+  width: 60px;
+  margin-left: -11px;
+  margin-top: 102px;
+}
+#week-view .row .cell .day .day-view-link.half,
+#month-view .row .cell .day .day-view-link.half {
+  margin-top: 145px !important;
+  width: 75px;
+}
+#week-view .row .cell .day .day-view-link.half:hover,
+#month-view .row .cell .day .day-view-link.half:hover {
+  font-weight: 600;
+  background-color: #49a078;
+}
+#week-view .row .cell .day:hover,
+#month-view .row .cell .day:hover {
+  background-color: #edfff4;
+}
+#week-view .row .cell .day:hover .day-view-link,
+#month-view .row .cell .day:hover .day-view-link {
+  display: inline-block;
+  font-weight: bold;
+}
+#week-view .row .cell .day:hover .week-view-link,
+#month-view .row .cell .day:hover .week-view-link {
+  display: inline-block;
+  font-weight: bold;
+}
+#week-view .row .cell .day span,
+#month-view .row .cell .day span {
+  position: absolute;
+  left: 3px;
+}
+#week-view .row .cell.header,
+#month-view .row .cell.header {
+  text-align: center;
+  min-height: 40px !important;
+  line-height: 40px;
+  font-size: 16pt;
+}
+#week-view .row .cell.header span,
+#month-view .row .cell.header span {
+  margin-left: 5px;
+}
+#week-view .row .cell.selected,
+#month-view .row .cell.selected {
+  background-color: #cee0dc;
+}
+#week-view .row .cell:last-child,
+#month-view .row .cell:last-child {
+  border-right: 1px solid #ccc;
+}
+
+.active {
+  background-color: lightblue;
+}
+#calendrier{
+  height: 500px;
+  width: 750px;
+}
+.leftContent{
+  background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#045FB4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #19186d;
+  position: relative;
+  left:800px;
+  top:-500px;
+}
+#week-view-header, span, #week-view, #goToDate, #view-switch-week, #view-switch-day{
+    background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#045FB4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #19186d;
+
+font-weight:bold;
+}
+#login{
+  background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#045FB4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #19186d;
+}
+#deconnexion{
+   background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#045FB4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #19186d;
+    position: relative;
+    top:-100px;
+}

@@ -1,0 +1,59 @@
+body{
+  background-color:#f1f3f5;
+}
+.container {
+display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 80px;
+  margin: 0 auto;
+  min-height: 100px;
+  color: #19186d;
+  font-weight:bold;
+}
+.btn {
+  flex: 1 1 auto;
+  margin: 10px;
+  padding: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: #19186d;
+  font-weight:bold;
+ /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+ }
+ .btn:hover {
+  background-position: right center; /* change the direction of the change here */
+}
+ .btn-3 {
+  background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
+}
+#openspace{
+  position: relative;
+  left:-400px;
+}
+#theo{
+  position: relative;
+  top:-119px;
+  left:-200px;
+
+}
+#buro{
+position: relative;
+top:-357px;
+left:400px;
+}
+#plato{
+position: relative;
+top:-238px;
+left:200px;
+}
+p{
+  position: relative;
+  top:-150px;
+}

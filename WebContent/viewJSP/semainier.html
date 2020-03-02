@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style/groupeSalle.css">
+<link rel="stylesheet" type="text/css" href="style/semainier.css">
+<title>Projet</title>
+<script type="text/javascript">
+	function onRadioButtonClick(e) {
+		changeStyle();
+		returnIdSalle(e);
+	}
+	function changeStyle() {
+		var calendrier = document.getElementById("calendrier");
+		var formateur = document.getElementById("leftContent");
+		
+		if (calendrier.style.display === "none") {
+			calendrier.style.display = "block";
+		} else {
+			calendrier.style.display = "none";
+		}
+
+		if (formateur.style.display === "none") {
+			formateur.style.display = "block";
+		} else {
+			formateur.style.display = "none";
+		}
+	}
+	function returnIdSalle(el) {
+		var name = el.name;
+		var id = el.id.toString();
+		if (name == "group")
+			document.getElementById("salleName").value = id;
+	};
+</script>
+
+
+</head>
+<body>
+	<div id="login">
+		<h1>Bonjour,</h1>
+	</div>
+	<form action="/GestionSalle/login" methode="get">
+		<div id="deconnexion">
+			<input type="submit" class="btn btn-3" name="group"
+				value="deconnexion">
+		</div>
+	</form>
+
+	<div class="container">
+		<form action="/GestionSalle/reservation" method="post">
+
+			<p>Choisissez votre Salle:</p>
+			<div id="openspace">
+				<input id="openspace" onclick="onRadioButtonClick(this)" type="button"
+					class="btn btn-3" name="group" value="openspace"> <em>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 60 places</em>
+			</div>
+			<br>
+
+			<div id="theo">
+				<input id="theo" onclick="onRadioButtonClick(this)" type="button"
+					class="btn btn-3" name="group" value="theo">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20 places</em>
+			</div>
+			<br>
+
+			<div id="plato">
+				<input id="plato" onclick="onRadioButtonClick(this)" type="button"
+					class="btn btn-3" name="group"
+					value="&nbsp;&nbsp;&nbsp;&nbsp;plato&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+				<em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15 places</em>
+			</div>
+
+			<div id="buro">
+				<input id="buro" onclick="onRadioButtonClick(this)" type="button"
+					class="btn btn-3" name="group"
+					value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buro&nbsp;&nbsp;&nbsp;&nbsp;">
+				<em> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10 places</em>
+			</div>
+		</form>
+
+	</div>
+
+	<div id="calendrier" style="display: none;">
+		<div id="cal-top-section">
+			<input id="datepicker" type="date" /> <input id="goToDate"
+				type="button" value="Go" />
+
+
+			<button id="view-switch-week" class="active">Semaine</button>
+			<button id="view-switch-day">Jour</button>
+		</div>
+		<br></br>
+
+		<div id="sch-go-back-btn"
+			onclick="Schedule.Navigation.Controller.goBack()">
+			<i class="fa fa-arrow-circle-o-left"></i>
+		</div>
+		<form id="formulaire" method="post" action="/GestionSalle/reservation">
+			<input type="hidden" name="salleName" id="salleName"
+				value="" />
+			<div id="cal-header-control">
+				<div id="cal-header-control-display">
+					<div class="day-display">
+						<span class="date"></span>
+					</div>
+					<div class="week-display">
+						<span class="date"></span>
+					</div>
+					<div class="month-display">
+						<span><i class="first-month fa fa-angle-double-left"
+							title="January"></i></span> <span><i
+							class="prev-month fa fa-angle-left" title="Prev Month"></i></span>
+						<div class="date"></div>
+						<span><i class="next-month fa fa-angle-right"
+							title="Next Month"></i></span> <span><i
+							class="last-month fa fa-angle-double-right" title="December"></i></span>
+					</div>
+				</div>
+				<div class="months-container hide">
+					<div class="month-btn" data-index="1">Jan</div>
+					<div class="month-btn" data-index="2">Fev</div>
+					<div class="month-btn" data-index="3">Mar</div>
+					<div class="month-btn" data-index="4">Avril</div>
+					<div class="month-btn" data-index="5">Mai</div>
+					<div class="month-btn" data-index="6">Juin</div>
+					<div class="month-btn" data-index="7">Juillet</div>
+					<div class="month-btn" data-index="8">Aout</div>
+					<div class="month-btn" data-index="9">Sept</div>
+					<div class="month-btn" data-index="10">Oct</div>
+					<div class="month-btn" data-index="11">Nov</div>
+					<div class="month-btn" data-index="12">Dec</div>
+				</div>
+			</div>
+
+			<h2 id="cal-day-view-label"></h2>
+			<h2 id="cal-week-view-label"></h2>
+			<h2 id="cal-month-view-label"></h2>
+
+			<div id="cal-header-control">
+				<div id="cal-header-control-display"></div>
+			</div>
+
+			<div id="week-view">
+				<div id="week-view-header" class="row">
+
+					<div class="cell header sat">
+						Dim<span></span>
+					</div>
+					<div class="cell header mon">
+						Lundi<span></span>
+					</div>
+					<div class="cell header tue">
+						Mardi<span></span>
+					</div>
+					<div class="cell header wed">
+						Merc<span></span>
+					</div>
+					<div class="cell header thu">
+						Jeudi<span></span>
+					</div>
+					<div class="cell header fri">
+						Vend<span></span>
+					</div>
+					<div class="cell header sun">
+						Sam<span></span>
+					</div>
+
+				</div>
+			</div>
+
+			<div id="month-view">
+				<div id="month-view-header" class="row">
+					<div class="cell header sat">
+						Dim<span></span>
+					</div>
+					<div class="cell header mon">
+						Lundi<span></span>
+					</div>
+					<div class="cell header tue">
+						Mardi<span></span>
+					</div>
+					<div class="cell header wed">
+						Merc<span></span>
+					</div>
+					<div class="cell header thu">
+						Jeudi<span></span>
+					</div>
+					<div class="cell header fri">
+						Vend<span></span>
+					</div>
+					<div class="cell header sun">
+						Sam<span></span>
+					</div>
+				</div>
+			</div>
+
+			<div id="day-view">
+				<div class="row">
+					<div class="cell">
+						<span></span>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="leftContent" id="leftContent">
+
+				<label>formateur :</label>
+				<!-- <select id="pop" style="width:100%" type="text"> -->
+				<!--        <option name="username" value="cyril">cyril</option>
+        <option name="username"value="remi">remi</option>
+        <option name="username"value="jonathan">Jonathan</option>
+        <option name="username"value="jacques">Jacques</option>
+        <option name="username"value="richard">Richard</option>
+        <option name="username"value="mathieu">Mathieu</option> -->
+
+
+				<input style="width: 102%" type="color">
+				<button class="addButton button">Ajouter</button>
+				<button class="red button">Supprimer</button>
+				<button class="valider" type="submit" name="book">Valider</button>
+
+			</div>
+		</form>
+	</div>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+	<script src="jsFichier/semainier.js"></script>
+
+</body>
+</html>

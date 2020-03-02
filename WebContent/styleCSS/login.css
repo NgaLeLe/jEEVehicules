@@ -1,0 +1,56 @@
+body{
+	background-color:#f1f3f5;
+}
+#degrade{
+	position: relative;
+	left:200px;
+    font-size: 50px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#045FB4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.degrade{
+	position: relative;
+	left: 300px;
+    font-size: 50px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#045FB4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:#19186d; 
+}
+#mp{
+	position: relative;
+	top:300px;
+}
+#login{
+	position: relative;
+	left:850px;
+	top: 20px;
+
+}
+button {
+	 height: 50px;
+	 width: 100px;
+	 font-size: 20px;
+	 	background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#045FB4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+
+}
+#equipe, img{
+	display: flex;
+ width: 200px;
+ height: 200px;
+}
+p{
+	background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#045FB4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:#19186d;
+}
+#bienvenue{
+	background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#045FB4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:#19186d;
+	position: relative;
+	left: :500px;
+}

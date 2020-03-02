@@ -1,0 +1,17 @@
+@charset "ISO-8859-1";
+div {
+	background: gris;
+	color: blue dark;
+}
+table tbody tr td h1 {
+	font-family:"Calibri";
+	font-size: 20pt;
+	font-weight: bold;
+	color: rgb(50,62,79);
+}
+h1 {
+	font-family:"Calibri";
+	font-size: 20pt;
+	font-weight: bold;
+	color: rgb(50,62,79);
+}

@@ -57,18 +57,10 @@ public class SvlCreationUser extends HttpServlet {
 				int tmpAnswer = userDB.ajouterUser(tmpUser);
 				System.out.println("result insert = " + tmpAnswer);
 				if (tmpAnswer == 1) {
-//					this.getServletContext().getRequestDispatcher("/viewJSP/login.jsp").forward(request, response);
-
 					response.sendRedirect(request.getContextPath() + "/login?created=complete");
 				}
-//				} else {
-//
-//					response.sendRedirect(request.getContextPath() + "/newUser?error=1");
-//				}
 			}
 			response.sendRedirect(request.getContextPath() + "/newUser?error=1");
-		} else {
-			response.sendRedirect(request.getContextPath() + "/newUser?error=2");
 		}
 	}
 

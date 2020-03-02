@@ -9,17 +9,17 @@
   <welcome-file-list>
     <welcome-file>login</welcome-file>
   </welcome-file-list>
-
+ 
  <filter>
 	<filter-name>FiltreAccessible</filter-name>
 	<filter-class>fr.filtre.FiltreAccessible</filter-class>
 </filter>
 <filter-mapping>
 	<filter-name>FiltreAccessible</filter-name>
-	<url-pattern>/viewJSP/toto</url-pattern>
+	<url-pattern>/*</url-pattern>
   </filter-mapping>  
  
- 
+
 <!-- défini servlet qui a le nom associé classe servlet, si on a plusieurs servlets, il faut les déclarer ici -->
 <servlet>
 	<servlet-name>SvlLoginForm</servlet-name>
