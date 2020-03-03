@@ -42,11 +42,11 @@
 	</head>
 <body>
 	<h1 id="degrade">LISTE DE VEHICULES</h1>
-	<c:set var="user" value="${username}">
+	<c:set var="user" value="${sessionScope.username}" >
 	</c:set>
 	<h3>Bonjour ${user}</h3>
 	<form id="formulaire" method="post" action="/jEEVehicule/toto"
-		name="formulaire">
+		name="formulaire" >
 
 		<fieldset id="typeVehicule">
 			<legend>Type de vehicule</legend>
@@ -97,6 +97,7 @@
 				<th>Couleur</th>
 				<th>Année</th>
 				<th>Puissance</th>
+				<th></th>
 			</tr>
 		<tbody>
 			<c:set var="list" value="${vehicules}" scope="session" />
@@ -122,7 +123,8 @@
 						<td></td>
 						<td></td>
 						<td>${vehicule.getPuissance()}</td>
-					</c:if>					
+					</c:if>			
+					<td><a href="/jEEVehicule/reservation" >Réserver</a></td>		
 				</tr>
 			</c:forEach>
 		</tbody>

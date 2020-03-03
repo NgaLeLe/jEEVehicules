@@ -51,18 +51,25 @@ public class FiltreAccessible implements Filter {
 		String fUser = (String) session.getAttribute("username");
 		String fPass = (String) session.getAttribute("password");
 		Utilisateur user = null;
-		if (fUser != null) {
+		if (fUser != null && fPass != null) { // l'utilisateur n'a pas saisi pas username ni password
 			try {
-				user = tmpUtilisateur.chercherUser(fUser, fPass);
+				user = tmpUtilisateur.chercherUser(fUser, fPass); // requete ça cherche ce username qui exist sous BD
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} catch (NullPointerException e) {
 				e.printStackTrace();
 			}
-		}
-		if ((fUser != null || user == null) && req.getRequestURI().endsWith("toto")) {
-			res.sendRedirect("login");
-			return;
+			// si utilisateur a saisi username/pass qui ne sont pas exist dans BD
+			System.out.println("URI = " + req.getRequestURI());
+			if (user == null && fUser != null && req.getRequestURI().endsWith("toto")) {
+				res.sendRedirect("login");
+//				return;
+//			} else {
+//				if (fUser != null && !CheckUser.checkAd(user.getUserName()) && req.getRequestURI().endsWith("toto")) {
+//					res.sendRedirect("login");
+//					return;
+//				}
+			}
 		} else {
 			chain.doFilter(req, res);
 		}

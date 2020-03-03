@@ -32,9 +32,11 @@
 			</tr>
 		</thead>
 		<tbody>
+		<c:set var="i" value="0" scope="page" />  
 			<c:forEach var="user" items="${listUser}">
 				<tr>
-					<th scope="row">${user.getIdUser()}</th>
+				<c:set var="i" value="${i+1}" scope="page" />
+					<th scope="row">${i}</th>
 					<td class="row_user">${user.getUserName()}</td>
 					<td class="row_user">${user.getSurName()}</td>
 					<td class="row_user">${user.getEmail()}</td>

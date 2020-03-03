@@ -27,34 +27,38 @@ public class SvlSiteVehicule extends HttpServlet {
 			throws ServletException, IOException {
 		// déclare les variables pour attraper toutes les valeurs des attributs dans le
 		// formule
+		// dès l'utilisateur s'est connecté; récupère les atts de session
 		list = (List<Vehicule>) request.getSession().getAttribute("vehicules");
 		VehiculeDB vehiculeDb = new VehiculeDB();
 		Voiture myVoiture;
 		Motocyclette myMoto;
-
+		// si ne pas récupère liste de session, je le reprend
 		if (list == null) {
 			list = (List<Vehicule>) request.getSession().getAttribute("vehicules");
 		}
+		// récupère les infos s/formulaire pour enregistree s/BD
 		String type = request.getParameter("ftypeVeh");
 		String myImma = request.getParameter("fImma");
 		String myMarque = request.getParameter("fMarque");
 		String myModele = request.getParameter("fModele");
 		String myButton = request.getParameter("submit");
+		// cas d'ajouter un nv véhicule
 		if (myButton.contains("Ajouter")) {
 			// si l'utilisateur a choisi button Voiture, type = "Voiture"
 			if (type.toLowerCase().contains("voiture")) {
 				String myCouleur = request.getParameter("fCouleur");
 				Integer myAnnee = Integer.parseInt(request.getParameter("fAnnee"));
+				// créer une voiture
 				myVoiture = new Voiture("Voiture", myMarque, myModele, myAnnee, myCouleur, myImma);
-				list.add(myVoiture);
-				vehiculeDb.ajouterVehicule(myVoiture);
+				list.add(myVoiture); // ajoute dans la liste
+				vehiculeDb.ajouterVehicule(myVoiture); // enregistre sous BD
 			} else {
 				Integer myPuissance = Integer.parseInt(request.getParameter("fPuissance"));
 				myMoto = new Motocyclette("Motocyclette", myMarque, myModele, myPuissance, myImma);
 				list.add(myMoto);
 				vehiculeDb.ajouterVehicule(myMoto);
 			}
-		} else {
+		} else { // cas de supprime un véhicule
 			if (myButton.contains("Supprimer")) {
 				String myVehiculeSupprimer = request.getParameter("VehSupUpd");
 				int index = findVehicule(myVehiculeSupprimer);

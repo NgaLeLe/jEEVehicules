@@ -53,7 +53,9 @@ public class UtilisateurDB {
 		pStatement.setString(1, pUsername);
 		pStatement.setString(2, pPassword);
 		ResultSet rs = pStatement.executeQuery();
-		if (rs.next()) {
+		System.out.println("fonction chercher DB");
+		while (rs.next()) {
+			System.out.println("exist");
 			user = new Utilisateur(rs.getString("username"), rs.getString("password"));
 		}
 		pStatement.close();

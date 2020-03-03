@@ -16,7 +16,8 @@
 			<h3>Re-remplissez ...</h3>
 		</c:when>
 		<c:when test="${param.error=='2'}">
-			<h3>Ne peut pas créer un nouveau compte ! </h3>
+			<h3> Voulez - vous créer un comte ?
+			Remlissez-le, s'il vous plait ! </h3>
 		</c:when>
 		
 		<c:when test="${param.created=='complete'}">
